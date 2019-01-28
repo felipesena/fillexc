@@ -8,7 +8,7 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog-master.xml
   datasource:
-    url: jdbc:postgresql://localhost/fillexc?createDatabaseIfNotExist=true
+    url: jdbc:postgresql://fillexc-db/fillexc?createDatabaseIfNotExist=true
     driver-class-name: org.postgresql.Driver
     username: fillexcadmin
     password: freel00k
