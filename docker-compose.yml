@@ -12,7 +12,7 @@ services:
       - "5432:5432"
 
   fillexc-service:
-    build: .
+    image: fillexc
     working_dir: /app
     volumes:
       - .:/app
