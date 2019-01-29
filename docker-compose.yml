@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  fillexc-db:
+    image: postgres:11-alpine
+    container_name: fillexc-db
+    environment:
+      POSTGRES_DB: fillexc
+      POSTGRES_USER: fillexcadmin
+      POSTGRES_PASSWORD: freel00k
+    ports:
+      - "5432:5432"
+
+  fillexc-service:
+    image: fillexc
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    command: mvn clean spring-boot:run
+    depends_on:
+      - fillexc-db

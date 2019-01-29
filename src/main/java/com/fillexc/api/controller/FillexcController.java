@@ -1,15 +1,13 @@
 package com.fillexc.api.controller;
 
 import com.fillexc.domain.Client;
+import com.fillexc.domain.SocialName;
 import com.fillexc.service.FillexcService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,29 @@ public class FillexcController {
     private ResponseEntity<Client> addClient(@RequestBody Client client) {
         log.info(String.format("Saving new client '%s'", client.getName()));
         return fillexcService.addClient(client);
+    }
+
+    @GetMapping(value = "/client/{id}")
+    private ResponseEntity<Client> getClient(@PathVariable int id) {
+        log.info("Getting client with id " + id);
+        return fillexcService.getClient(id);
+    }
+
+    @GetMapping(value = "/socialname")
+    private ResponseEntity<List> getAllSocialNames() {
+        log.info("Getting all social names");
+        return fillexcService.getAllSocialNames();
+    }
+
+    @PostMapping(value = "/socialname/new")
+    private ResponseEntity<SocialName> addSocialName(@RequestBody SocialName socialName) {
+        log.info(String.format("Saving new social name '%s'", socialName.getName()));
+        return fillexcService.addSocialName(socialName);
+    }
+
+    @GetMapping(value = "/socialname/{id}")
+    private ResponseEntity<SocialName> getSocialName(@PathVariable int id) {
+        log.info("Getting social name with id " + id);
+        return fillexcService.getSocialName(id);
     }
 }
