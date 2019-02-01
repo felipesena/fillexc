@@ -1,20 +1,8 @@
 spring:
-  application:
-    name: fillexc
-  cloud:
-    vault:
-      token:
-      scheme: http
+  profiles:
+    active: prod
   liquibase:
     change-log: classpath:/db/changelog-master.xml
-  datasource:
-    url: jdbc:postgresql://fillexc-db/fillexc?createDatabaseIfNotExist=true
-    driver-class-name: org.postgresql.Driver
-    username: fillexcadmin
-    password: freel00k
-  jpa:
-    properties:
-      hibernate:
-        jdbc:
-          lob:
-            non_contextual_creation: true
+  application:
+    name: fillexc
+

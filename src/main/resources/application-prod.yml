@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://fillexc-db/fillexc?createDatabaseIfNotExist=true
+    driver-class-name: org.postgresql.Driver
+    username: fillexcadmin
+    password: freel00k
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
