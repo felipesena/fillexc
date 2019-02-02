@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Client {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
 

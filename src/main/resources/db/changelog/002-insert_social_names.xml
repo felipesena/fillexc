@@ -7,15 +7,12 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet id="002" author="fsena">
         <insert tableName="social_name">
-            <column name="id" valueNumeric="1"/>
             <column name="name" value="Ocupacional"/>
         </insert>
         <insert tableName="social_name">
-            <column name="id" valueNumeric="2"/>
             <column name="name" value="MN"/>
         </insert>
         <insert tableName="social_name">
-            <column name="id" valueNumeric="3"/>
             <column name="name" value="Assiste"/>
         </insert>
 

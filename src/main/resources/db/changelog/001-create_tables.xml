@@ -6,45 +6,26 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet id="001" author="fsena">
-        <createTable tableName="client"
-                     remarks="A table to contain all clients">
-            <column name="id" type="int">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" unique="true"/>
-            </column>
-            <column name="provider" type="int">
-                <constraints nullable="false"/>
-            </column>
-            <column name="created" type="timestamp" defaultValueDate="now()">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
+        <sql>
+            CREATE TABLE client(
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(100) NOT NULL,
+                provider INT NOT NULL,
+                created TIMESTAMP DEFAULT now()
+            );
 
-        <createTable tableName="social_name">
-            <column name="id" type="int">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
-            </column>
-            <column name="name" type="varchar(250)">
-                <constraints nullable="false" unique="true"/>
-            </column>
-            <column name="created" type="timestamp" defaultValueDate="now()">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
+            CREATE TABLE social_name(
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            created TIMESTAMP DEFAULT now()
+            );
 
-        <createTable tableName="email">
-            <column name="id" type="int">
-                <constraints nullable="false" unique="true" primaryKey="true" />
-            </column>
-            <column name="email" type="varchar(100)">
-                <constraints nullable="false" />
-            </column>
-            <column name="client" type="int">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
+            CREATE TABLE email(
+                id SERIAL PRIMARY KEY,
+                email VARCHAR(100) NOT NULL,
+                client INT NOT NULL
+            );
+        </sql>
 
         <addForeignKeyConstraint baseTableName="client" baseColumnNames="provider"
                                  constraintName="client_socialname_fk"

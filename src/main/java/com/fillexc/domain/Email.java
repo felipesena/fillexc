@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Email {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     @Id
     private int id;

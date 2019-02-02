@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class SocialName {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
 
