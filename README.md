@@ -19,7 +19,7 @@ you just need to use the `local` profile that is configured an in-memory databas
   </a>  
 </p>
 
-##Running in Docker
+## Running in Docker
 
 To run it in Docker you need to generate the image for Fillexc first and then run it with `docker-compose`, 
 for it just run the command below:
