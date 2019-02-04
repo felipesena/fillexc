@@ -25,6 +25,6 @@ To run it in Docker you need to generate the image for Fillexc first and then ru
 for it just run the command below:
 
 ```
-mvn clean package docker:build -Dspring.profiles.actrive=local
+mvn clean package docker:build -Dspring.profiles.active=local
 docker-compose up -d
 ```
