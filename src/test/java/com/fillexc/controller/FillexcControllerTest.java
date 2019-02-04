@@ -118,7 +118,10 @@ public class FillexcControllerTest {
     @Test
     public void testAddSocialName() throws Exception {
         SocialName socialName = new SocialName();
+        socialName.setId(1);
         socialName.setName("Nova Ocupacional");
+
+        when(fillexcService.addSocialName(socialName)).thenReturn(new ResponseEntity(socialName, HttpStatus.CREATED));
 
         ObjectMapper mapper = new ObjectMapper();
 
