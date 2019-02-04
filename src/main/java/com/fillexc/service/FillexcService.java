@@ -22,9 +22,6 @@ public class FillexcService {
     @Autowired
     private SocialNameRepository socialNameRepo;
 
-    @Autowired
-    private S3Service s3Service;
-
     public ResponseEntity<Client> addClient(Client client) {
         return new ResponseEntity(clientRepo.save(client), HttpStatus.CREATED);
     }

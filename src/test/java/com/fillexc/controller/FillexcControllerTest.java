@@ -46,7 +46,7 @@ public class FillexcControllerTest {
     private MockMvc mockMvc;
 
     @Before
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
 
         mockMvc = MockMvcBuilders.standaloneSetup(fillexcController).build();
