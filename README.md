@@ -2,6 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2b6f5cde596440f585fefd5cab8841e3)](https://app.codacy.com/app/felipesena/fillexc?utm_source=github.com&utm_medium=referral&utm_content=felipesena/fillexc&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/felipesena/fillexc.svg?branch=master)](https://travis-ci.org/felipesena/fillexc)
+[![codecov](https://codecov.io/gh/felipesena/fillexc/branch/master/graph/badge.svg)](https://codecov.io/gh/felipesena/fillexc)
 
 This repo is a improvement of [Provider](https://github.com/felipesena/Provider), it's a RESTful API
 for the web site that will be create in the future. Besides the improvement, this is a way that i found

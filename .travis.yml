@@ -2,6 +2,7 @@ language: java
 services:
   - docker
 before_install:
+  - "mvn -N io.takari:maven:wrapper"
   - "mvn clean package docker:build cobertura:cobertura -Dspring.profiles.active=local"
 install:
   - docker-compose up -d
