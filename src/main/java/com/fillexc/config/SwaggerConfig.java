@@ -32,7 +32,7 @@ public class SwaggerConfig {
                 "REST API for Fillexc website",
                 "1.0",
                 "Terms of Service",
-                new Contact("Felipe Sena", "https://github.com/felipesena",
+                new Contact("Felipe Sena", "https://github.com/felipesena/fillexc",
                         "felipedepaulasena@hotmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licesen.html"
