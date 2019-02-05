@@ -1,0 +1,11 @@
+language: java
+services:
+  - docker
+before_install:
+  - "mvn clean package docker:build cobertura:cobertura -Dspring.profiles.active=local"
+install:
+  - docker-compose up -d
+notifications:
+  email: true
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
