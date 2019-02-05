@@ -17,6 +17,9 @@
         </insert>
 
         <rollback>
+            <delete tableName="email">
+                <where>id = 1</where>
+            </delete>
             <delete tableName="client">
                 <where>id = 1</where>
             </delete>
