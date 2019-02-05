@@ -25,7 +25,7 @@ you just need to use the `local` profile that is configured an in-memory databas
 To run it in Docker you need to generate the image for Fillexc first and then run it with `docker-compose`, 
 for it just run the command below:
 
-```
+```sh
 mvn clean package docker:build -Dspring.profiles.active=local
 docker-compose up -d
 ```

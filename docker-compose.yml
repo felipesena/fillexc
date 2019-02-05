@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: fillexcadmin
       POSTGRES_PASSWORD: freel00k
     ports:
-      - "5432:5432"
+      - "8000:5432"
 
   fillexc-service:
     image: fillexc
