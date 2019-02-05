@@ -13,7 +13,7 @@ to learn new technologies such as: [Docker](https://docs.docker.com), [Spring](h
 
 You need to add `spring.profiles.active=local` in `environment variables` in configuration in IntelliJ in order to run/debug it in your
 machine. This is because the real database is in Docker, since you don't want to start new container to run/debug
-you just need to use the `local` profile that is configured an in-memory database (H2) to get life easier.
+you just need to use the `local` profile that is configured an in-memory database (H2) to make life easier.
 
 <p align="center">
   <a>
