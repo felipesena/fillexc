@@ -14,6 +14,7 @@ import javax.persistence.*;
 public class Email {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "email_id")
     @JsonIgnore
     @Id
     private int id;

@@ -8,37 +8,67 @@
     <changeSet id="001" author="fsena">
         <sql>
             CREATE TABLE client(
-                id SERIAL PRIMARY KEY,
+                client_id SERIAL PRIMARY KEY,
                 name VARCHAR(100) NOT NULL,
-                provider INT NOT NULL,
+                social_name_id INT NOT NULL,
                 created TIMESTAMP DEFAULT now()
             );
 
             CREATE TABLE social_name(
-            id SERIAL PRIMARY KEY,
+            social_name_id SERIAL PRIMARY KEY,
             name VARCHAR(100) NOT NULL,
             created TIMESTAMP DEFAULT now()
             );
 
             CREATE TABLE email(
-                id SERIAL PRIMARY KEY,
+                email_id SERIAL PRIMARY KEY,
                 email VARCHAR(100) NOT NULL,
-                client INT NOT NULL
+                client_id INT NOT NULL
+            );
+
+            CREATE TABLE fillexc_user(
+                user_id SERIAL PRIMARY KEY,
+                email VARCHAR(100) UNIQUE NOT NULL,
+                password VARCHAR(30) NOT NULL,
+                username VARCHAR(20),
+                active INT NOT NULL
+            );
+
+            CREATE TABLE role(
+                role_id SERIAL PRIMARY KEY,
+                role VARCHAR(30)
+            );
+
+            CREATE TABLE user_role(
+                user_id INT NOT NULL,
+                role_id INT NOT NULL
             );
         </sql>
 
-        <addForeignKeyConstraint baseTableName="client" baseColumnNames="provider"
+        <addForeignKeyConstraint baseTableName="client" baseColumnNames="social_name_id"
                                  constraintName="client_socialname_fk"
-                                 referencedTableName="social_name" referencedColumnNames="id"/>
+                                 referencedTableName="social_name" referencedColumnNames="social_name_id"/>
 
-        <addForeignKeyConstraint baseTableName="email" baseColumnNames="client"
+        <addForeignKeyConstraint baseTableName="email" baseColumnNames="client_id"
                                  constraintName="email_client_fk"
-                                 referencedTableName="client" referencedColumnNames="id" />
+                                 referencedTableName="client" referencedColumnNames="client_id" />
+
+        <addForeignKeyConstraint baseTableName="user_role" baseColumnNames="user_id"
+                                 constraintName="user_role_user_fk"
+                                 referencedTableName="fillexc_user" referencedColumnNames="user_id" />
+
+        <addForeignKeyConstraint baseTableName="user_role" baseColumnNames="role_id"
+                                 constraintName="user_role_role_fk"
+                                 referencedTableName="role" referencedColumnNames="role_id" />
 
         <rollback>
             <dropTable tableName="client" />
             <dropTable tableName="social_name" />
             <dropTable tableName="email" />
+            <dropTable tableName="user_role" />
+            <dropTable tableName="user" />
+            <dropTable tableName="role" />
+            <dropAllForeignKeyConstraints baseTableName="user_role" />
             <dropForeignKeyConstraint baseTableName="client" constraintName="client_socialname_fk" />
             <dropForeignKeyConstraint baseTableName="email" constraintName="email_client_fk" />
         </rollback>

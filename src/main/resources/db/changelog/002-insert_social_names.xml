@@ -18,7 +18,7 @@
 
         <rollback>
             <delete tableName="social_name">
-                <where>id in (1,2,3)</where>
+                <where>social_name_id in (1,2,3)</where>
             </delete>
         </rollback>
     </changeSet>

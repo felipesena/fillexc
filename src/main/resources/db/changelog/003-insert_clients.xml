@@ -8,20 +8,20 @@
     <changeSet id="003" author="fsena">
         <insert tableName="client">
             <column name="name" value="Adalberto Cardoso"/>
-            <column name="provider" valueNumeric="1"/>
+            <column name="social_name_id" valueNumeric="1"/>
         </insert>
 
         <insert tableName="email">
             <column name="email" value="adm.braunas@gmail.com" />
-            <column name="client" valueNumeric="1" />
+            <column name="client_id" valueNumeric="1" />
         </insert>
 
         <rollback>
             <delete tableName="email">
-                <where>id = 1</where>
+                <where>email_id = 1</where>
             </delete>
             <delete tableName="client">
-                <where>id = 1</where>
+                <where>client_id = 1</where>
             </delete>
         </rollback>
     </changeSet>

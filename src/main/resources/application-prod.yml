@@ -3,7 +3,7 @@ spring:
     url: jdbc:postgresql://fillexc-db/fillexc?createDatabaseIfNotExist=true
     driver-class-name: org.postgresql.Driver
     username: fillexcadmin
-    password: freel00k
+    password: freep4ss
   jpa:
     properties:
       hibernate:

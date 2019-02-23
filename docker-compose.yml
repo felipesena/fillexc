@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_DB: fillexc
       POSTGRES_USER: fillexcadmin
-      POSTGRES_PASSWORD: freel00k
+      POSTGRES_PASSWORD: freep4ss
     ports:
       - "8000:5432"
 
