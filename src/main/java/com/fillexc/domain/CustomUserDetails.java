@@ -7,47 +7,62 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public class CustomUserDeatils extends User implements UserDetails {
+public class CustomUserDetails implements UserDetails {
 
-    public CustomUserDeatils(final User user) {
-        super(user);
+    private User user;
+
+    public CustomUserDetails(final User user) {
+        this.user = user;
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles()
+        return user.getRoles()
                 .stream()
-                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole()))
+                .map(role -> new SimpleGrantedAuthority(role.getRole()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public String getPassword() {
-        return super.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return super.getUsername();
+        return user.getUsername();
     }
 
     @Override
     public boolean isAccountNonExpired() {
+        if (user.getActive() == 1)
+            return true;
+
         return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
+        if (user.getActive() == 1)
+            return true;
+
         return false;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
+        if (user.getActive() == 1)
+            return true;
+
         return false;
     }
 
     @Override
     public boolean isEnabled() {
+        if (user.getActive() == 1)
+            return true;
+
         return false;
     }
 }

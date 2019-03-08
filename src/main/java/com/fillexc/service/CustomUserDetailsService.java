@@ -1,6 +1,6 @@
 package com.fillexc.service;
 
-import com.fillexc.domain.CustomUserDeatils;
+import com.fillexc.domain.CustomUserDetails;
 import com.fillexc.domain.User;
 import com.fillexc.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class CustomUserDetailsService implements UserDetailsService {
     private UserRepository userRepo;
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Optional<User> optionalUser = userRepo.findByUsername(s);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> optionalUser = userRepo.findByUsername(username);
 
         optionalUser
                 .orElseThrow(() -> new UsernameNotFoundException("Username not found"));
 
         return optionalUser
-                .map(CustomUserDeatils::new).get();
+                .map(CustomUserDetails::new).get();
     }
 }

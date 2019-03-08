@@ -15,15 +15,6 @@ import java.util.List;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 
-    public User(User user) {
-        this.id = user.id;
-        this.email = user.email;
-        this.password = user.password;
-        this.username = user.username;
-        this.active = user.active;
-        this.roles = user.roles;
-    }
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     @Id

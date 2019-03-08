@@ -14,7 +14,6 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@PreAuthorize("hasAnyRole('USER')")
 @RequestMapping(FillexcController.API_PREFIX)
 public class FillexcController {
 
@@ -24,37 +23,37 @@ public class FillexcController {
     public final static String API_PREFIX = "/api/fillexc";
 
     @GetMapping(value = "/client")
-    private ResponseEntity<List> getAllClients() {
+    public ResponseEntity<List> getAllClients() {
         log.info("Getting all clients");
         return fillexcService.getAllClients();
     }
 
     @PostMapping(value = "/client/new")
-    private ResponseEntity<Client> addClient(@RequestBody Client client) {
+    public ResponseEntity<Client> addClient(@RequestBody Client client) {
         log.info(String.format("Saving new client '%s'", client.getName()));
         return fillexcService.addClient(client);
     }
 
     @GetMapping(value = "/client/{id}")
-    private ResponseEntity<Client> getClient(@PathVariable int id) {
+    public ResponseEntity<Client> getClient(@PathVariable int id) {
         log.info("Getting client with id " + id);
         return fillexcService.getClient(id);
     }
 
     @GetMapping(value = "/socialname")
-    private ResponseEntity<List> getAllSocialNames() {
+    public ResponseEntity<List> getAllSocialNames() {
         log.info("Getting all social names");
         return fillexcService.getAllSocialNames();
     }
 
     @PostMapping(value = "/socialname/new")
-    private ResponseEntity<SocialName> addSocialName(@RequestBody SocialName socialName) {
+    public ResponseEntity<SocialName> addSocialName(@RequestBody SocialName socialName) {
         log.info(String.format("Saving new social name '%s'", socialName.getName()));
         return fillexcService.addSocialName(socialName);
     }
 
     @GetMapping(value = "/socialname/{id}")
-    private ResponseEntity<SocialName> getSocialName(@PathVariable int id) {
+    public ResponseEntity<SocialName> getSocialName(@PathVariable int id) {
         log.info("Getting social name with id " + id);
         return fillexcService.getSocialName(id);
     }

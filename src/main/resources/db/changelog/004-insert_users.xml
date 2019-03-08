@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet id="004" author="fsena">
-        <insert tableName="user">
+        <insert tableName="fillexc_user">
             <column name="email" value="felipedepaulasena@hotmail.com"/>
             <column name="password" value="freep4ss"/>
             <column name="username" value="fsena"/>
@@ -15,6 +15,9 @@
 
         <insert tableName="role">
             <column name="role" value="ADMIN"/>
+        </insert>
+
+        <insert tableName="role">
             <column name="role" value="USER"/>
         </insert>
 
