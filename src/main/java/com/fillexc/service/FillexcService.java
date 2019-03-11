@@ -6,6 +6,8 @@ import com.fillexc.repository.ClientRepository;
 import com.fillexc.repository.SocialNameRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -37,10 +39,10 @@ public class FillexcService {
         return new ResponseEntity(client, HttpStatus.OK);
     }
 
-    public ResponseEntity getAllClients() {
-        List<Client> clients = clientRepo.findAll();
+    public ResponseEntity getAllClients(Pageable page) {
+        Page<Client> clients = clientRepo.findAll(page);
 
-        if (clients.size() == 0)
+        if (clients.getTotalElements() == 0)
             return new ResponseEntity(clients, HttpStatus.NO_CONTENT);
 
         return new ResponseEntity(clients, HttpStatus.OK);

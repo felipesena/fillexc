@@ -55,7 +55,14 @@ public class FillexcControllerTest {
 
         mockMvc.perform(get(FillexcController.API_PREFIX + "/socialname"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(3)));
+                .andExpect(jsonPath("$", hasSize(7)))
+                .andExpect(jsonPath("$[0].name", equalTo("Ocupacional")))
+                .andExpect(jsonPath("$[1].name", equalTo("MN")))
+                .andExpect(jsonPath("$[2].name", equalTo("Assiste")))
+                .andExpect(jsonPath("$[3].name", equalTo("Credenciada")))
+                .andExpect(jsonPath("$[4].name", equalTo("Teste")))
+                .andExpect(jsonPath("$[5].name", equalTo("Cortesia")))
+                .andExpect(jsonPath("$[6].name", equalTo("Permuta")));
     }
 
     @WithMockUser("fsena")
@@ -74,10 +81,13 @@ public class FillexcControllerTest {
 
         mockMvc.perform(get(FillexcController.API_PREFIX + "/client"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].name", equalTo("Adalberto Cardoso")))
-                .andExpect(jsonPath("$[0].emails", hasSize(1)))
-                .andExpect(jsonPath("$[0].provider.name", equalTo("Ocupacional")));
+                .andExpect(jsonPath("$.content", hasSize(10)))
+                .andExpect(jsonPath("$.content[0].name", equalTo("AJI Comercio de Roupas Eireli -Epp")))
+                .andExpect(jsonPath("$.content[0].emails", hasSize(1)))
+                .andExpect(jsonPath("$.content[0].provider.name", equalTo("Assiste")))
+                .andExpect(jsonPath("$.totalElements", equalTo(20)))
+                .andExpect(jsonPath("$.number", equalTo(0)))
+                .andExpect(jsonPath("$.first", equalTo(true)));
     }
 
     @WithMockUser("fsena")
@@ -92,6 +102,6 @@ public class FillexcControllerTest {
                 .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(socialName)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.name", equalTo("Nova Ocupacional")))
-                .andExpect(jsonPath("$.id", equalTo(4)));
+                .andExpect(jsonPath("$.id", equalTo(8)));
     }
 }

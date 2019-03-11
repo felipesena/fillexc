@@ -8,7 +8,8 @@
 
     <include file="changelog/001-create_tables.xml" relativeToChangelogFile="true"/>
     <include file="changelog/002-insert_social_names.xml" relativeToChangelogFile="true"/>
-    <include file="changelog/003-insert_clients.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/003-insert_clients_prod.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/003-insert_clients_local.xml" relativeToChangelogFile="true"/>
     <include file="changelog/004-insert_users.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

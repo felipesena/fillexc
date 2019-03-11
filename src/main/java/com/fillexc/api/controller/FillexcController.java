@@ -5,6 +5,9 @@ import com.fillexc.domain.SocialName;
 import com.fillexc.service.FillexcService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +25,9 @@ public class FillexcController {
     public final static String API_PREFIX = "/api/fillexc";
 
     @GetMapping(value = "/client")
-    public ResponseEntity<List> getAllClients() {
+    public ResponseEntity<Page> getAllClients(@PageableDefault(sort = "name") Pageable page) {
         log.info("Getting all clients");
-        return fillexcService.getAllClients();
+        return fillexcService.getAllClients(page);
     }
 
     @PostMapping(value = "/client/new")

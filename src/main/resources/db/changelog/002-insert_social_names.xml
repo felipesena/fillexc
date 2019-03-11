@@ -15,10 +15,23 @@
         <insert tableName="social_name">
             <column name="name" value="Assiste"/>
         </insert>
+        <insert tableName="social_name">
+            <column name="name" value="Credenciada"/>
+        </insert>
+        <insert tableName="social_name">
+            <column name="name" value="Teste"/>
+        </insert>
+        <insert tableName="social_name">
+            <column name="name" value="Cortesia"/>
+        </insert>
+        <insert tableName="social_name">
+            <column name="name" value="Permuta"/>
+        </insert>
+
 
         <rollback>
             <delete tableName="social_name">
-                <where>social_name_id in (1,2,3)</where>
+                <where>social_name_id in (1,2,3,4,5,6,7)</where>
             </delete>
         </rollback>
     </changeSet>

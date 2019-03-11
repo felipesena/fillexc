@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="test_data" author="fsena" context="test">
+        <insert tableName="client">
+            <column name="name" value="FC Mármores e Granitos Eireli"/>
+            <column name="social_name_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Air System Engenharia Ltda-ME"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="AJI Comércio  de Roupas Eireli - EPP (Filial)"/>
+            <column name="social_name_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="AJI Comercio de Roupas Eireli -Epp"/>
+            <column name="social_name_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Alcance Oftalmologia Ltda"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Alfa Vidros Distribuidora e Comercio Ltda - EPP"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Aliemp Alimentacao Empresarial Ltda"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Alimemp Alimentacao Empresarial Ltda - ME"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Alternativa Verde Dedetizacao Belo Horizonte Ltda"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="AMC Comercio e Serviços Madeireiros Ltda. - Me"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="American Automóveis e Serviços Ltda (Cidade Nova-BH For)"/>
+            <column name="social_name_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="American Automóveis e Serviços Ltda (Lourdes-BH For)"/>
+            <column name="social_name_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="AMP Indústria e Comercio de Condutores Ltda"/>
+            <column name="social_name_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Andaimix Locação e Comercio de Andaimes e Equipamentos Ltda - ME"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Anfa Industria e Comercio de Confeccoes Ltda"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="AP Ponto Construção e Incorporação Ltda (Matriz)"/>
+            <column name="social_name_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Apail Diesel Autopeças Ltda - Filial BH"/>
+            <column name="social_name_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Apail Diesel Autopeças Ltda - Matriz"/>
+            <column name="social_name_id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Arizona Logística LTDA"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="client">
+            <column name="name" value="Arte Nativa Produtos Naturais Ltda"/>
+            <column name="social_name_id" valueNumeric="1"/>
+        </insert>
+
+        <insert tableName="email">
+            <column name="email" value="test@emailtest.com"/>
+            <column name="client_id" valueNumeric="4"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

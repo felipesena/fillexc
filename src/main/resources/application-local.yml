@@ -2,6 +2,8 @@ spring:
   h2:
     console:
       enabled: true
+  liquibase:
+    contexts: test
   datasource:
     url: jdbc:h2:mem:fillexc
     driverClassName: org.h2.Driver
